@@ -219,5 +219,60 @@ body {
   * {
     @apply border-border outline-ring/50;
   }
-  /* Removed body styles to prevent overriding custom brand colors */
+  
+  /* shadcn body styles - but preserve custom brand backgrounds */
+  body:not(.bg-brand):not([class*="bg-"]) {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Allow brand backgrounds to override when explicitly set */
+  .bg-brand {
+    background-color: #FA7275 !important;
+    color: white !important;
+  }
+}
+
+/* Auth Form Styles */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 580px;
+  width: 100%;
+  justify-content: center;
+  gap: 1.5rem; /* space-y-6 equivalent */
+  transition: all 0.2s;
+}
+
+.form-title {
+  font-size: 34px;
+  line-height: 42px;
+  font-weight: bold;
+  text-align: center;
+  color: #333F4E;
+  margin-bottom: 0.5rem;
+}
+
+.form-submit-button {
+  background-color: #FA7275;
+  color: white;
+  font-weight: 600;
+  height: 3.25rem; /* h-12 equivalent */
+  border-radius: 9999px;
+  transition: all 0.2s;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.form-submit-button:hover {
+  background-color: #EA6365;
+}
+
+@media (min-width: 768px) {
+  .form-title {
+    text-align: left;
+  }
+  
+  .auth-form {
+    gap: 2rem; /* space-y-8 equivalent for larger screens */
+  }
 }
